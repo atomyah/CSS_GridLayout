@@ -1,0 +1,1495 @@
+@charset "UTF-8";
+
+/* CSSグリッドに対応したブラウザ用の設定を記述 */
+@supports (display: grid) {
+
+body {
+	margin: 0;
+	font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+}
+
+
+/* 基本 */
+.post * {
+	margin: 0;
+}
+
+.post img {
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+.post-series img {
+	max-width: 30px;
+}
+
+.shop img {
+	max-width: 100px;
+}
+
+
+/* グリッド */
+.post {
+	--side: 20px;
+	display: grid;
+	grid-template-columns: var(--side) 1fr 50px 1fr var(--side);
+	grid-template-rows: auto 30px auto 40px auto 30px auto;
+}
+
+/* ヘッダー */
+.post-head {
+	grid-column: 2 / -2;
+	grid-row: 1;
+
+	/* ヘッダーのグリッド */
+	display: grid;
+	grid-template-columns: 75px 1fr 140px;
+	grid-template-rows: 45px repeat(3, auto);
+	grid-column-gap: 24px;
+	grid-row-gap: 12px;
+}
+
+
+/* ヘッダー: タイトル */
+.post-title {
+	grid-column: 2;
+	grid-row: 3;
+	font-family: 'Mplus 1p', sans-serif;
+	font-size: 35px;
+	font-weight: 900;
+	line-height: 1.2;
+}
+
+/* ヘッダー: リード文 */
+.post-lead {
+	grid-column: 2;
+	grid-row: 4;
+	font-size: 13px;
+	line-height: 1.8;
+}
+
+/* ヘッダー: シリーズ名 */
+.post-series {
+	grid-column: 1;
+	grid-row: 1 / 4;
+	margin-bottom: -12px;
+	background-color: #000;
+	color: #fff;
+	font-size: 14px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 700;
+	text-align: center;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	align-content: center;
+	grid-row-gap: 8px;
+}
+
+/* ヘッダー: 日付 */
+.post-date {
+	grid-column: 3;
+	grid-row: 1;
+	align-self: end;
+	padding: 3px 0;
+	background-color: #222;
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	text-align: center;
+}
+
+
+/* ヘッダー： メニューの基本設定 */
+.post-head ol,
+.post-head ul {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: start;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.post-head a,
+.post-head a {
+	color: #000;
+	text-decoration: none;
+}
+
+/* ヘッダー: パンくずリスト */
+.post-bread {
+	grid-column: 2;
+	grid-row: 1;
+	align-self: end;
+	font-size: 10px;
+	line-height: 2;
+}
+
+.post-bread li:not(:last-child)::after {
+	margin: 0 5px;
+	content: '>';
+	color: #aaa;
+}
+
+/* ヘッダー: カテゴリー */
+.post-category {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.post-category ul {
+	grid-column-gap: 5px;
+}
+
+.post-category a {
+	display: block;
+	padding: 3px 10px;
+	border-radius: 5px;
+	background-color: #ccc;
+	font-size: 10px;
+}
+
+/* ヘッダー: SNSメニュー */
+.post-sns {
+	grid-column: 3;
+	grid-row: 3;
+}
+
+.post-sns ul {
+	justify-content: space-between;
+}
+
+.post-sns a {
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	display: block;
+	width: 40px;
+	line-height: 35px;
+}
+.post-sns li:nth-child(1) a
+	 {background-color: #55acee;}
+.post-sns li:nth-child(2) a
+	 {background-color: #3b5998;}
+.post-sns li:nth-child(3) a
+	 {background-color: #dd4b39;}
+
+/* ヘッダー： 区切り線 */
+.post-head::before	{
+	grid-column: 1 / -1;
+	grid-row: 1;
+	align-self: end;
+	content: '';
+	border-top: solid 4px #222;
+	height: 2px;
+	border-bottom: solid 2px #222;
+	margin: 0 calc(var(--side) * -1) -4px;
+}
+
+/* ヘッダー： 装飾画像 */
+.post-head::after	{
+	grid-column: 3;
+	grid-row: 4;
+	justify-self: center;
+	align-self: center;
+	width: 80%;
+	content: url('img/gourmet.svg');
+}
+
+
+/* セクション（共通） */
+.sec h2 {
+	font-family: 'Mplus 1p', sans-serif;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.sec .spot {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	border: solid 1px #aaa;
+	border-radius: 50%;
+	box-sizing: border-box;
+	display: block;
+	width: 3.75em;
+	height: 3.75em;
+	line-height: 3.75em;
+}
+
+.sec .num {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 78px;
+	font-weight: 300;
+	line-height: 1;
+}
+
+.sec p {
+	font-size: 14px;
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+
+/* セクション01 */
+.sec01 {
+	grid-column: 2 / -2;
+	grid-row: 3;
+
+	/* セクション01のグリッド */
+	display: grid;
+	grid-template-columns: 50% 1fr;
+	grid-template-rows: auto 1fr auto;
+	grid-column-gap: 25px;
+	grid-row-gap: 15px;
+}
+
+/* セクション01: 小見出し */
+.sec01 h2 {
+	grid-column: 2;
+	grid-row: 1;
+	margin-left: -70px;
+	z-index: 1;
+
+	/* 小見出しのグリッド */
+	display: grid;
+	grid-template-columns: auto auto 1fr;
+	grid-template-rows: auto auto;
+	grid-row-gap: 10px;
+	align-items: end;
+}
+
+.sec01 h2::after {
+	grid-column: 1 / -1;
+	content: '';
+	display: block;
+	border: solid 4px gold;
+}
+
+.sec01 .spot {
+	margin-top: -8px;
+	align-self: start;
+}
+
+.sec01 .num {
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+
+
+/* セクション01: 画像 */
+.sec01 figure {
+	grid-column: 1;
+	grid-row: 1 / -1;
+}
+
+.sec01 figure img {
+	height: 100%;
+	object-fit: cover;
+}
+
+/* セクション01: 文章 */
+.sec01 p {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+/* セクション01: ショップ情報 */
+.sec01 .shop {
+	grid-column: 2;
+	grid-row: 3;
+}
+
+
+/* セクション02 */
+.sec02 {
+	grid-column: 2;
+	grid-row: 5;
+
+	/* セクション02のグリッド */
+	display: grid;
+	grid-template-columns: 4fr 5fr;
+	grid-template-rows: auto 1fr auto auto;
+	grid-column-gap: 15px;
+	grid-row-gap: 15px;
+}
+
+
+/* セクション02: 小見出し */
+.sec02 h2 {
+	grid-column: 1 / -1;
+	grid-row: 1;
+
+	/* 小見出しのグリッド */
+	display: grid;
+	grid-template-columns: auto auto auto 1fr;
+	grid-template-rows: auto;
+	align-items: end;
+}
+
+.sec02 h2::after {
+	grid-column: 3;
+	grid-row: 1;
+	align-self: stretch;
+	margin-bottom: -45px;
+	margin-right: 5px;
+	z-index: 1;
+	content: '';
+	display: block;
+	border: solid 4px gold;
+}
+
+.sec02 .spot {
+	margin-left: -20px;
+	margin-right: -10px;
+	margin-bottom: -20px;
+	z-index: 1;
+}
+
+.sec02 .num {
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+
+
+/* セクション02: 画像01 */
+.sec02 .fig01 {
+	grid-column: 1;
+	grid-row: 2 / 4;
+	margin-bottom: 40px;
+}
+
+.sec02 .fig01 img {
+	height: 100%;
+	object-fit: cover;
+}
+
+
+/* セクション02: 画像02 */
+.sec02 .fig02 {
+	grid-column: 2;
+	grid-row: 3;
+	margin-left: -40px;
+}
+
+/* セクション02: 文章 */
+.sec02 p {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+/* セクション02: ショップ情報 */
+.sec02 .shop {
+	grid-column: 1 / -1;
+	grid-row: 4;
+}
+
+
+/* セクション03 */
+.sec03 {
+	grid-column: 4;
+	grid-row: 5;
+
+	/* セクション03のグリッド */
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto 1fr auto;
+	grid-row-gap: 15px;
+}
+
+/* セクション03: 小見出し */
+.sec03 h2 {
+	grid-column: 1;
+	grid-row: 2;
+
+	/* 小見出しのグリッド */
+	display: grid;
+	grid-template-columns: auto auto 1fr auto;
+	grid-template-rows: auto auto;
+	grid-row-gap: 10px;
+	align-items: end;
+}
+
+.sec03 h2::before {
+	grid-column: 4;
+	grid-row: 1;
+	align-self: stretch;
+	margin-bottom: -10px;
+	margin-top: -60px;
+	z-index: 1;
+	transform: rotate(-22deg);
+	transform-origin: right bottom;
+	content: '';
+	display: block;
+	border: solid 4px gold;
+}
+
+.sec03 h2::after {
+	grid-column: 1 / -1;
+	content: '';
+	display: block;
+	border: solid 4px gold;
+}
+
+.sec03 .spot {
+	margin-left: -15px;
+}
+
+.sec03 .num {
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+
+/* セクション03: 画像 */
+.sec03 figure {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+/* セクション03: 文章 */
+.sec03 p {
+	grid-column: 1;
+	grid-row: 3;
+}
+
+/* セクション03: ショップ情報 */
+.sec03 .shop {
+	grid-column: 1;
+	grid-row: 4;
+}
+
+
+/* ショップ情報 */
+.shop {
+	display: grid;
+	grid-template-columns: 100px 1fr;
+	grid-template-rows: auto auto;
+	grid-column-gap: 10px;
+	grid-row-gap: 5px;
+	border: solid 1px #222;
+}
+
+
+.shop img {
+	grid-column: 1;
+	grid-row: 1 / -1;
+}
+
+.shop h3 {
+	grid-column: 2;
+	grid-row: 1;
+	font-size: 12px;
+	align-self: end;
+}
+.shop p {
+	grid-column: 2;
+	grid-row: 2;
+	font-size: 10px;
+	line-height: 1.5;
+}
+
+.shop span {
+	padding: 0 5px;
+	border-radius: 10px;
+	background-color: #ddd;
+}
+
+
+/* セクションを区切る点線 */
+.post::before	{
+	grid-column: 2 / -2;
+	grid-row: 4;
+	align-self: center;
+	content: '';
+	border-top: dotted 6px #ddd;
+}
+
+.post::after	{
+	grid-column: 3;
+	grid-row: 5;
+	justify-self: center;
+	content: '';
+	border-left: dotted 6px #ddd;
+}
+
+
+/* フッター */
+.post-foot {
+	grid-column: 1 / -1;
+	grid-row: -2;
+	padding: 30px 0;
+	background-color: #222;
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+}
+
+
+/* ##### 画面の横幅1000ピクセル以上 ##### */
+@media (min-width: 1000px) {
+	.post {
+		--side: calc( (100vw - 960px) / 2 );
+	}
+
+	.post-title {
+		font-size: 40px;
+	}
+
+	.sec h2 {
+		font-size: 24px;
+	}
+}
+
+
+
+/* ##### 画面の横幅767ピクセル以下 ##### */
+@media (max-width: 767px) {
+	/* グリッド */
+	.post {
+		--side: 20px;
+		grid-template-columns:
+		 var(--side) 1fr var(--side);
+		grid-template-rows:
+		 auto 40px auto 50px auto 50px auto 40px auto;
+	}
+
+	/* ヘッダー */
+	.post-head {
+		grid-column: 1 / 3;
+		grid-row: 1;
+
+		/* ヘッダーのグリッド */
+		grid-template-columns: var(--side) 1fr 100px;
+		grid-column-gap: 12px;
+	}
+
+	/* ヘッダー: シリーズ名 */
+	.post-series {
+		display: block;
+		writing-mode: vertical-rl;
+		width: var(--side); /* Safari 10.x用 */
+	}
+
+	.post-series img {
+		width: 12px;
+		height: 12px;
+		vertical-align: baseline;
+	}
+
+
+	/* ヘッダー: タイトル */
+	.post-title {
+		grid-column: 2 / -1;
+		grid-row: 2;
+	}
+
+	/* ヘッダー: カテゴリー */
+	.post-category {
+		grid-column: 2;
+		grid-row: 3;
+	}
+
+	/* ヘッダー: リード文 */
+	.post-lead {
+		grid-column: 2 / -1;
+		grid-row: 4;
+	}
+
+	/* ヘッダー: SNSメニュー */
+	.post-sns a {
+		width: 30px;
+		line-height: 30px;
+	}
+
+	/* ヘッダー： 装飾画像 */
+	.post-head::after {
+		content: none;
+	}
+
+
+	/* セクション: 小見出し */
+	.sec h2 {
+		margin: 0;
+		font-size: 20px;
+	}
+
+	.sec .spot {
+		margin: 0 0 0 calc( (var(--side) + 5px) * -1 );
+		font-size: 12px;
+		align-self: end;
+	}
+
+	.sec .num {
+		font-size: 60px;
+	}
+
+	/* セクション01 */
+	.sec01 {
+		grid-column: 2;
+		grid-row: 3;
+
+		/* セクション01のグリッド */
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, auto);
+		grid-row-gap: 15px;
+	}
+
+	.sec01.sec > * {
+		grid-column: auto;
+		grid-row: auto;
+	}
+
+	.sec01 h2::after {
+		margin: 0 calc( var(--side) * -1 );
+	}
+
+	/* セクション02 */
+	.sec02 {
+		grid-column: 2;
+		grid-row: 5;
+	}
+
+	/* セクション03 */
+	.sec03 {
+		grid-column: 2;
+		grid-row: 7;
+	}
+
+	.sec03.sec > * {
+		grid-column: auto;
+		grid-row: auto;
+	}
+
+	.sec03 h2::before {
+		content: none;
+	}
+
+	/* フッター */
+	.post-foot {
+		grid-column: 1 / -1;
+		grid-row: -2 / -1;
+	}
+
+
+	/* セクションを区切る点線 */
+	.post::before	{
+		grid-column: 2;
+		grid-row: 4;
+	}
+
+	.post::after	{
+		grid-column: 2;
+		grid-row: 6;
+		justify-self: stretch;
+		align-self: center;
+		border-top: dotted 6px #ddd;
+	}
+
+}
+
+
+} /* CSSグリッドに対応したブラウザ用の設定 ここまで */
+
+
+/* IE11用の設定を記述 */
+@media all and (-ms-high-contrast: none), not all and (-ms-high-contrast: none) {
+
+/* Autoprefixerで変換した設定 */
+body {
+	margin: 0;
+	font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+}
+
+
+/* 基本 */
+.post * {
+	margin: 0;
+}
+
+.post img {
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+.post-series img {
+	max-width: 30px;
+}
+
+.shop img {
+	max-width: 100px;
+}
+
+
+/* グリッド */
+.post {
+	--side: 20px;
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: calc( (100vw - 768px) / 2 ) 1fr 50px 1fr calc( (100vw - 768px) / 2 );
+	    grid-template-columns: calc( (100vw - 768px) / 2 ) 1fr 50px 1fr calc( (100vw - 768px) / 2 );
+	-ms-grid-rows: auto 30px auto 40px auto 30px auto;
+	    grid-template-rows: auto 30px auto 40px auto 30px auto;
+}
+
+/* ヘッダー */
+.post-head {
+	-ms-grid-column: 2;
+	-ms-grid-column-span: 3;
+	grid-column: 2 / 5;
+	-ms-grid-row: 1;
+	grid-row: 1;
+
+	/* ヘッダーのグリッド */
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 75px 1fr 140px;
+	    grid-template-columns: 75px 1fr 140px;
+	-ms-grid-rows: 45px (auto)[3];
+	    grid-template-rows: 45px repeat(3, auto);
+	grid-column-gap: 24px;
+	grid-row-gap: 12px;
+}
+
+
+/* ヘッダー: タイトル */
+.post-title {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 3;
+	grid-row: 3;
+	font-family: 'Mplus 1p', sans-serif;
+	font-size: 35px;
+	font-weight: 900;
+	line-height: 1.2;
+}
+
+/* ヘッダー: リード文 */
+.post-lead {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 4;
+	grid-row: 4;
+	font-size: 13px;
+	line-height: 1.8;
+}
+
+/* ヘッダー: シリーズ名 */
+.post-series {
+	-ms-grid-column: 1;
+	grid-column: 1;
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 3;
+	grid-row: 1 / 4;
+	margin-bottom: -12px;
+	background-color: #000;
+	color: #fff;
+	font-size: 14px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 700;
+	text-align: center;
+	display: -ms-grid;
+	display: grid;
+	justify-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-ms-flex-line-pack: center;
+	    align-content: center;
+	grid-row-gap: 8px;
+}
+
+/* ヘッダー: 日付 */
+.post-date {
+	-ms-grid-column: 3;
+	grid-column: 3;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	-ms-flex-item-align: end;
+	    -ms-grid-row-align: end;
+	    align-self: end;
+	padding: 3px 0;
+	background-color: #222;
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	text-align: center;
+}
+
+
+/* ヘッダー： メニューの基本設定 */
+.post-head ol,
+.post-head ul {
+	display: -ms-grid;
+	display: grid;
+	grid-auto-flow: column;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: start;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.post-head a,
+.post-head a {
+	color: #000;
+	text-decoration: none;
+}
+
+/* ヘッダー: パンくずリスト */
+.post-bread {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	-ms-flex-item-align: end;
+	    -ms-grid-row-align: end;
+	    align-self: end;
+	font-size: 10px;
+	line-height: 2;
+}
+
+.post-bread li:not(:last-child)::after {
+	margin: 0 5px;
+	content: '>';
+	color: #aaa;
+}
+
+/* ヘッダー: カテゴリー */
+.post-category {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 2;
+	grid-row: 2;
+}
+
+.post-category ul {
+	grid-column-gap: 5px;
+}
+
+.post-category a {
+	display: block;
+	padding: 3px 10px;
+	border-radius: 5px;
+	background-color: #ccc;
+	font-size: 10px;
+}
+
+/* ヘッダー: SNSメニュー */
+.post-sns {
+	-ms-grid-column: 3;
+	grid-column: 3;
+	-ms-grid-row: 3;
+	grid-row: 3;
+}
+
+.post-sns ul {
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+.post-sns a {
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	display: block;
+	width: 40px;
+	line-height: 35px;
+}
+.post-sns li:nth-child(1) a
+	 {background-color: #55acee;}
+.post-sns li:nth-child(2) a
+	 {background-color: #3b5998;}
+.post-sns li:nth-child(3) a
+	 {background-color: #dd4b39;}
+
+/* ヘッダー： 区切り線 */
+.post-head::before	{
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 3;
+	grid-column: 1 / 4;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	-ms-flex-item-align: end;
+	    -ms-grid-row-align: end;
+	    align-self: end;
+	content: '';
+	border-top: solid 4px #222;
+	height: 2px;
+	border-bottom: solid 2px #222;
+	margin: 0 calc(( (100vw - 768px) / 2 ) * -1) -4px;
+}
+
+/* ヘッダー： 装飾画像 */
+.post-head::after	{
+	-ms-grid-column: 3;
+	grid-column: 3;
+	-ms-grid-row: 4;
+	grid-row: 4;
+	-ms-grid-column-align: center;
+	    justify-self: center;
+	-ms-flex-item-align: center;
+	    -ms-grid-row-align: center;
+	    align-self: center;
+	width: 80%;
+	content: url('img/gourmet.svg');
+}
+
+
+/* セクション（共通） */
+.sec h2 {
+	font-family: 'Mplus 1p', sans-serif;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.sec .spot {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	border: solid 1px #aaa;
+	border-radius: 50%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: block;
+	width: 3.75em;
+	height: 3.75em;
+	line-height: 3.75em;
+}
+
+.sec .num {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 78px;
+	font-weight: 300;
+	line-height: 1;
+}
+
+.sec p {
+	font-size: 14px;
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+
+/* セクション01 */
+.sec01 {
+	-ms-grid-column: 2;
+	-ms-grid-column-span: 3;
+	grid-column: 2 / 5;
+	-ms-grid-row: 3;
+	grid-row: 3;
+
+	/* セクション01のグリッド */
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 50% 1fr;
+	    grid-template-columns: 50% 1fr;
+	-ms-grid-rows: auto 1fr auto;
+	    grid-template-rows: auto 1fr auto;
+	grid-column-gap: 25px;
+	grid-row-gap: 15px;
+}
+
+/* セクション01: 小見出し */
+.sec01 h2 {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	margin-left: -70px;
+	z-index: 1;
+
+	/* 小見出しのグリッド */
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: auto auto 1fr;
+	    grid-template-columns: auto auto 1fr;
+	-ms-grid-rows: auto auto;
+	    grid-template-rows: auto auto;
+	grid-row-gap: 10px;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: end;
+}
+
+.sec01 h2::after {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 3;
+	grid-column: 1 / 4;
+	content: '';
+	display: block;
+	border: solid 4px gold;
+}
+
+.sec01 .spot {
+	margin-top: -8px;
+	-ms-flex-item-align: start;
+	    -ms-grid-row-align: start;
+	    align-self: start;
+}
+
+.sec01 .num {
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+
+
+/* セクション01: 画像 */
+.sec01 figure {
+	-ms-grid-column: 1;
+	grid-column: 1;
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 3;
+	grid-row: 1 / 4;
+}
+
+.sec01 figure img {
+	height: 100%;
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+
+/* セクション01: 文章 */
+.sec01 p {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 2;
+	grid-row: 2;
+}
+
+/* セクション01: ショップ情報 */
+.sec01 .shop {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 3;
+	grid-row: 3;
+}
+
+
+/* セクション02 */
+.sec02 {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 5;
+	grid-row: 5;
+
+	/* セクション02のグリッド */
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 4fr 5fr;
+	    grid-template-columns: 4fr 5fr;
+	-ms-grid-rows: auto 1fr auto auto;
+	    grid-template-rows: auto 1fr auto auto;
+	grid-column-gap: 15px;
+	grid-row-gap: 15px;
+}
+
+
+/* セクション02: 小見出し */
+.sec02 h2 {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 2;
+	grid-column: 1 / 3;
+	-ms-grid-row: 1;
+	grid-row: 1;
+
+	/* 小見出しのグリッド */
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: auto auto auto 1fr;
+	    grid-template-columns: auto auto auto 1fr;
+	-ms-grid-rows: auto;
+	    grid-template-rows: auto;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: end;
+}
+
+.sec02 h2::after {
+	-ms-grid-column: 3;
+	grid-column: 3;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	-ms-flex-item-align: stretch;
+	    -ms-grid-row-align: stretch;
+	    align-self: stretch;
+	margin-bottom: -45px;
+	margin-right: 5px;
+	z-index: 1;
+	content: '';
+	display: block;
+	border: solid 4px gold;
+}
+
+.sec02 .spot {
+	margin-left: -20px;
+	margin-right: -10px;
+	margin-bottom: -20px;
+	z-index: 1;
+}
+
+.sec02 .num {
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+
+
+/* セクション02: 画像01 */
+.sec02 .fig01 {
+	-ms-grid-column: 1;
+	grid-column: 1;
+	-ms-grid-row: 2;
+	-ms-grid-row-span: 2;
+	grid-row: 2 / 4;
+	margin-bottom: 40px;
+}
+
+.sec02 .fig01 img {
+	height: 100%;
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+
+
+/* セクション02: 画像02 */
+.sec02 .fig02 {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 3;
+	grid-row: 3;
+	margin-left: -40px;
+}
+
+/* セクション02: 文章 */
+.sec02 p {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 2;
+	grid-row: 2;
+}
+
+/* セクション02: ショップ情報 */
+.sec02 .shop {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 2;
+	grid-column: 1 / 3;
+	-ms-grid-row: 4;
+	grid-row: 4;
+}
+
+
+/* セクション03 */
+.sec03 {
+	-ms-grid-column: 4;
+	grid-column: 4;
+	-ms-grid-row: 5;
+	grid-row: 5;
+
+	/* セクション03のグリッド */
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 1fr;
+	    grid-template-columns: 1fr;
+	-ms-grid-rows: auto auto 1fr auto;
+	    grid-template-rows: auto auto 1fr auto;
+	grid-row-gap: 15px;
+}
+
+/* セクション03: 小見出し */
+.sec03 h2 {
+	-ms-grid-column: 1;
+	grid-column: 1;
+	-ms-grid-row: 2;
+	grid-row: 2;
+
+	/* 小見出しのグリッド */
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: auto auto 1fr auto;
+	    grid-template-columns: auto auto 1fr auto;
+	-ms-grid-rows: auto auto;
+	    grid-template-rows: auto auto;
+	grid-row-gap: 10px;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: end;
+}
+
+.sec03 h2::before {
+	-ms-grid-column: 4;
+	grid-column: 4;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	-ms-flex-item-align: stretch;
+	    -ms-grid-row-align: stretch;
+	    align-self: stretch;
+	margin-bottom: -10px;
+	margin-top: -60px;
+	z-index: 1;
+	-webkit-transform: rotate(-22deg);
+	    -ms-transform: rotate(-22deg);
+	        transform: rotate(-22deg);
+	-webkit-transform-origin: right bottom;
+	    -ms-transform-origin: right bottom;
+	        transform-origin: right bottom;
+	content: '';
+	display: block;
+	border: solid 4px gold;
+}
+
+.sec03 h2::after {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 4;
+	grid-column: 1 / 5;
+	content: '';
+	display: block;
+	border: solid 4px gold;
+}
+
+.sec03 .spot {
+	margin-left: -15px;
+}
+
+.sec03 .num {
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+
+/* セクション03: 画像 */
+.sec03 figure {
+	-ms-grid-column: 1;
+	grid-column: 1;
+	-ms-grid-row: 1;
+	grid-row: 1;
+}
+
+/* セクション03: 文章 */
+.sec03 p {
+	-ms-grid-column: 1;
+	grid-column: 1;
+	-ms-grid-row: 3;
+	grid-row: 3;
+}
+
+/* セクション03: ショップ情報 */
+.sec03 .shop {
+	-ms-grid-column: 1;
+	grid-column: 1;
+	-ms-grid-row: 4;
+	grid-row: 4;
+}
+
+
+/* ショップ情報 */
+.shop {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 100px 1fr;
+	    grid-template-columns: 100px 1fr;
+	-ms-grid-rows: auto auto;
+	    grid-template-rows: auto auto;
+	grid-column-gap: 10px;
+	grid-row-gap: 5px;
+	border: solid 1px #222;
+}
+
+
+.shop img {
+	-ms-grid-column: 1;
+	grid-column: 1;
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 2;
+	grid-row: 1 / 3;
+}
+
+.shop h3 {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	font-size: 12px;
+	-ms-flex-item-align: end;
+	    -ms-grid-row-align: end;
+	    align-self: end;
+}
+.shop p {
+	-ms-grid-column: 2;
+	grid-column: 2;
+	-ms-grid-row: 2;
+	grid-row: 2;
+	font-size: 10px;
+	line-height: 1.5;
+}
+
+.shop span {
+	padding: 0 5px;
+	border-radius: 10px;
+	background-color: #ddd;
+}
+
+
+/* セクションを区切る点線 */
+.post::before	{
+	-ms-grid-column: 2;
+	-ms-grid-column-span: 3;
+	grid-column: 2 / 5;
+	-ms-grid-row: 4;
+	grid-row: 4;
+	-ms-flex-item-align: center;
+	    -ms-grid-row-align: center;
+	    align-self: center;
+	content: '';
+	border-top: dotted 6px #ddd;
+}
+
+.post::after	{
+	-ms-grid-column: 3;
+	grid-column: 3;
+	-ms-grid-row: 5;
+	grid-row: 5;
+	-ms-grid-column-align: center;
+	    justify-self: center;
+	content: '';
+	border-left: dotted 6px #ddd;
+}
+
+
+/* フッター */
+.post-foot {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 5;
+	grid-column: 1 / 6;
+	-ms-grid-row: 7;
+	grid-row: 7;
+	padding: 30px 0;
+	background-color: #222;
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+}
+
+
+
+/* IE11用追加設定 */
+.post::before,
+.post::after {
+	display: block;
+}
+
+/* IE11用追加設定: ヘッダー */
+.post-date,
+.post-head::before,
+.post-head::after {
+	display: block;
+}
+.post-bread,
+.post-category,
+.post-title,
+.post-lead {
+	margin-left: 24px;
+	margin-right: 24px;
+	margin-top: 12px;
+}
+.post-head ol,
+.post-head ul {
+	display: flex;
+}
+.post-series {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 10px;
+}
+.post-series img {
+	margin-bottom: 5px;
+}
+
+
+/* IE11用追加設定: セクション */
+.post {
+	min-width: 768px;
+}
+.sec > h2,
+.sec > p {
+	margin-bottom: 15px;
+}
+.sec01 > figure {
+	margin-right: 25px;
+}
+.sec02 > .fig01 {
+	margin-right: 15px;
+}
+.sec02 > .fig02 {
+	margin-bottom: 15px;
+}
+.shop h3,
+.shop p {
+	margin-left: 10px;
+}
+
+/* IE11用追加設定: セクション 小見出し */
+.sec h2 span,
+.sec h2::after,
+.sec h2::before {
+	display: block;
+}
+.sec h2 span {
+	-ms-grid-column: 3;
+	-ms-grid-row-align: end;
+}
+.sec h2 .spot {
+	-ms-grid-column: 1;
+}
+.sec h2 .num {
+	-ms-grid-column: 2;
+}
+.sec01 h2::after {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 3;
+	-ms-grid-row: 2;
+	margin-top: 10px;
+}
+.sec02 h2 span {
+	-ms-grid-column: 4;
+}
+.sec02 h2::after {
+	-ms-grid-column: 3;
+	-ms-grid-row: 1;
+}
+.sec03 h2::after {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 4;
+	-ms-grid-row: 2;
+	margin-top: 10px;
+}
+
+
+} /* IE11用の設定 ここまで */
+
+
+/* IE11用の設定（画面の横幅768px以下のときの両サイドの余白) */
+@media all and (max-width: 768px) and (-ms-high-contrast: none), 
+not all (min-width: 768px) and (-ms-high-contrast: none) {
+	.post {
+		-ms-grid-columns: 20px 1fr 50px 1fr 20px;
+	}
+	.post-head::before {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+} /* IE11用の設定 ここまで */
+

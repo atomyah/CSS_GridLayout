@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+body	{margin: 0;
+	font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif}
+
+
+/* 基本 */
+.cake * {
+	margin: 0;
+}
+
+.cake img	{
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+
+/* グリッド */
+.cake {
+	--sideLR: 20px;
+	--sideTB: 40px;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: auto auto;
+	grid-column-gap: 20px;
+	grid-row-gap: 50px;
+	margin: var(--sideTB) var(--sideLR);
+}
+
+/* 画像 */
+.cake-photo {
+	grid-column: 1;
+	grid-row: 1 / -1;
+}
+
+/* タイトルと文章 */
+.cake-main {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+/* サブ情報 */
+.cake-sub {
+	grid-column: 2;
+	grid-row: 2;
+}
+

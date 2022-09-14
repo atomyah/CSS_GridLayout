@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>CSSグリッドレイアウト デザインブック 【ダウンロードデータ】</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+<style>
+body	{margin: 0;
+	background-image: linear-gradient(to top, transparent, transparent 50px, #ddd 50px, #ddd 51px);
+	background-size: 51px 51px;
+	font-family: Helvetica, Arial, 'Noto Sans Japanese', 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+	display: grid;
+	grid-template-columns: 1fr minmax(auto,600px) 1fr;}
+body::before {grid-column: 1 / 4;
+	grid-row: 1;
+	content: '';
+	background-image: linear-gradient(to right, transparent, transparent 50px, #ddd 50px, #ddd 51px);
+	background-size: 51px 51px;}
+body::after {grid-column: 1;
+	grid-row: 1;
+	justify-self: start;
+	content: 'CSS GRID LAYOUT DESIGN BOOK';
+	padding: 40px 1px;
+	color: #fff;
+	background-color: #c1c3bd;
+	font-family: 'Montserrat', sans-serif;
+	writing-mode: vertical-rl;}
+.contents	{grid-column: 2;
+	grid-row: 1;
+	margin: 0 auto;
+	padding: 0 20px;}
+h1	{margin: 30px 0 0;
+	color: #40413d;
+	font-size: 40px;
+	font-weight: 900;
+	line-height: 1.2;}
+@media (max-width:425px) {h1 {font-size: 34px;}}
+@media (max-width:374px) {h1 {font-size: 28px;}}
+h1 span {color: #b03a28;
+	font-size: 56px;
+	font-weight: 800;}
+h1 + p	{margin: 16px 0 60px;
+	padding-bottom: 10px;
+	border-bottom: solid 6px #b03a28;
+	color: #b03a28;
+	font-weight: 700;}
+h2	{margin-top: 40px;
+	font-size: 25px;
+	font-weight: 800;}
+.chap	{display: block;
+	color: #888;
+	color: var(--color);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 38px;
+	font-weight: bold;}
+.sub	{display: block;
+	color: #888;
+	font-size: 16px;
+	font-weight: 400;}
+h3	{margin-top: 40px;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto auto;
+	grid-column-gap: 10px;
+	column-gap: 10px;
+	font-size: 20px;}
+.num	{grid-column: 1;
+	grid-row: 1 / 3;
+	display: block;
+	width: 2.6em;
+	height: 2.6em;
+	line-height: 2.6em;
+	text-align: center;
+	border-radius: 50%;
+	color: #fff;
+	background-color: #888;
+	background-color: var(--color);
+	font-family: 'Montserrat', sans-serif;}
+a	{color: #5788b9;}
+ul	{margin: 0;
+	padding: 0;
+	list-style: none}
+li	{margin-bottom: 8px;}
+li a	{display: block;
+	padding: 10px;
+	padding-left: 10px;
+	border-radius: 2px;
+	background-color: #aaa;
+	background-color: var(--color);
+	color: #fff;
+	text-decoration: none;}
+li a[href]:hover	{opacity: 0.9;
+	filter: saturate(150%);}
+.list-fix	{display: grid;
+	grid-template-columns: 7fr minmax(7em,3fr);
+	grid-column-gap: 10px;
+	column-gap: 10px;}
+.list-step li	{display: inline-block;
+	margin-right: 5px;}
+.list-step a	{background-color: var(--color);
+	color: #fff;
+	font-weight: bold;}
+.copyright {margin-top: 60px;
+	color: #888;}
+.chap01	{--color: #8dc556;}
+.chap02	{--color: #69b4a5;}
+.chap03	{--color: #749bc2;}
+.chap04	{--color: #d1a6a1;}
+@media all and (-ms-high-contrast: none), not all and (-ms-high-contrast: none) {
+body	{display: -ms-grid;
+	-ms-grid-columns: 1fr 680px 1fr;
+	-ms-grid-rows: auto;}
+body::before {-ms-grid-column: 1;
+	-ms-grid-column-span: 3;
+	-ms-grid-row: 1;
+	display: block;}
+body::after {-ms-grid-column: 1;
+	-ms-grid-row: 1;
+	-ms-grid-column-align: start;
+	-ms-writing-mode: tb-rl;
+	display: block;}
+.contents {-ms-grid-column: 2;
+	-ms-grid-row: 1;
+	padding: 0 40px;}
+h3 .num {float: left;
+	margin-right: 10px;
+	transform: translate(0,-8px);}
+.list-fix {display: -ms-grid;
+	-ms-grid-columns: 7fr 3fr;}
+.list-fix li {margin-right: 10px;}
+.list-fix li:nth-child(2) {-ms-grid-column: 2;
+	-ms-grid-row: 1;}
+.list-fix li:nth-child(3) {-ms-grid-column: 1;
+	-ms-grid-row: 2;}
+.list-fix li:nth-child(4) {-ms-grid-column: 2;
+	-ms-grid-row: 2;}
+.list-fix li:nth-child(5) {-ms-grid-column: 1;
+	-ms-grid-row: 3;}
+.list-fix li:nth-child(6) {-ms-grid-column: 2;
+	-ms-grid-row: 3;}
+.chap01 .list-fix li:nth-child(2) a {background: #8dc556;}
+.chap02 .list-fix li:nth-child(2) a {background: #69b4a5;}
+.chap03 .list-fix li:nth-child(2) a {background: #749bc2;}
+.chap04 .list-fix li:nth-child(2) a {background: #d1a6a1;}
+.chap04 .list-fix li:nth-child(4) a {background: #d1a6a1;}
+.chap04 .list-fix li:nth-child(6) a {background: #d1a6a1;}
+}
+</style>
+
+<base target="_blank">
+</head>
+<body>
+
+
+<div class="contents">
+<h1><span>CSS</span><br>グリッドレイアウト <br>デザインブック</h1>
+<p>HTML&CSSで実現する、柔軟でレスポンシブなWebデザイン</p>
+
+
+<section class="chap01">
+<h2><span class="chap">CHAPTER 1</span>
+雑誌風レイアウト
+<span class="sub">縦横に均等に分割したグリッドで作成</span></h2>
+
+<ul class="list-fix">
+<li><a href="chap01/sample/sample.html">完成ページ</a></li>
+<li><a href="chap01/ie11/sample.html">IE11対応版</a></li>
+</ul>
+
+<ul class="list-step">
+<li><a href="chap01/1-04/sample.html">	1-4	</a></li>
+<li><a href="chap01/1-06/sample.html">	1-6	</a></li>
+<li><a href="chap01/1-07/sample.html">	1-7	</a></li>
+<li><a href="chap01/1-08/sample.html">	1-8	</a></li>
+<li><a href="chap01/1-09/sample.html">	1-9	</a></li>
+<li><a href="chap01/1-10/sample.html">	1-10	</a></li>
+<li><a href="chap01/1-11/sample.html">	1-11	</a></li>
+<li><a href="chap01/1-12/sample.html">	1-12	</a></li>
+<li><a href="chap01/1-13/sample.html">	1-13	</a></li>
+<li><a href="chap01/1-14/sample.html">	1-14	</a></li>
+</ul>
+
+<p>※参考（P.032）：<br><a href="chap01/nogrid/sample.html">CSSグリッドなしでHTMLの構造や文書構造を意識して作成したページ</a></p>
+</section>
+
+
+<section class="chap02">
+<h2><span class="chap">CHAPTER 2</span>
+フライヤー風レイアウト
+<span class="sub">複数のグリッドを組み合わせて作成</span></h2>
+
+<ul class="list-fix">
+<li><a href="chap02/sample/sample.html">完成ページ</a></li>
+<li><a href="chap02/ie11/sample.html">IE11対応版</a></li>
+</ul>
+
+<ul class="list-step">
+<li><a href="chap02/2-04/sample.html">	2-4	</a></li>
+<li><a href="chap02/2-05/sample.html">	2-5	</a></li>
+<li><a href="chap02/2-06/sample.html">	2-6	</a></li>
+<li><a href="chap02/2-07/sample.html">	2-7	</a></li>
+<li><a href="chap02/2-08/sample.html">	2-8	</a></li>
+<li><a href="chap02/2-09/sample.html">	2-9	</a></li>
+<li><a href="chap02/2-10/sample.html">	2-10	</a></li>
+<li><a href="chap02/2-11/sample.html">	2-11	</a></li>
+<li><a href="chap02/2-12/sample.html">	2-12	</a></li>
+<li><a href="chap02/2-13/sample.html">	2-13	</a></li>
+<li><a href="chap02/2-14/sample.html">	2-14	</a></li>
+<li><a href="chap02/2-15/sample.html">	2-15	</a></li>
+<li><a href="chap02/2-16/sample.html">	2-16	</a></li>
+</ul>
+</section>
+
+
+<section class="chap03">
+<h2><span class="chap">CHAPTER 3</span>
+画像をメインにしたレイアウト
+</h2>
+
+<h3><span class="num">3A</span>
+画像にテキストを重ねたレイアウト
+<span class="sub">12分割の列のグリッドで作成</span>
+</h3>
+
+<ul class="list-fix">
+<li><a href="chap03A/sample/sample.html">完成ページ</a></li>
+<li><a href="chap03A/ie11/sample.html">IE11対応版</a></li>
+</ul>
+
+<ul class="list-step">
+<li><a href="chap03A/3A-02/sample.html">	3A-2	</a></li>
+<li><a href="chap03A/3A-03/sample.html">	3A-3	</a></li>
+<li><a href="chap03A/3A-04/sample.html">	3A-4	</a></li>
+<li><a href="chap03A/3A-05/sample.html">	3A-5	</a></li>
+</ul>
+
+
+
+<h3><span class="num">3B</span>
+画像にテキストの一部を重ねたレイアウト
+<span class="sub">固定＋可変な列を組み合わせたグリッドで作成</span>
+</h3>
+
+<ul class="list-fix">
+<li><a href="chap03B/sample/sample.html">完成ページ</a></li>
+<li><a href="chap03B/ie11/sample.html">IE11対応版</a></li>
+</ul>
+
+<ul class="list-step">
+<li><a href="chap03B/3B-02/sample.html">	3B-2	</a></li>
+<li><a href="chap03B/3B-03/sample.html">	3B-3	</a></li>
+<li><a href="chap03B/3B-04/sample.html">	3B-4	</a></li>
+<li><a href="chap03B/3B-05/sample.html">	3B-5	</a></li>
+<li><a href="chap03B/3B-06/sample.html">	3B-6	</a></li>
+</ul>
+
+
+
+<h3><span class="num">3C</span>
+左右対称なレイアウト
+<span class="sub">2分割のシンプルなグリッドで作成</span>
+</h3>
+
+<ul class="list-fix">
+<li><a href="chap03C/sample/sample.html">完成ページ</a></li>
+<li><a href="chap03C/ie11/sample.html">IE11対応版</a></li>
+</ul>
+
+<ul class="list-step">
+<li><a href="chap03C/3C-02/sample.html">	3C-2	</a></li>
+<li><a href="chap03C/3C-03/sample.html">	3C-3	</a></li>
+<li><a href="chap03C/3C-04/sample.html">	3C-4	</a></li>
+<li><a href="chap03C/3C-05/sample.html">	3C-5	</a></li>
+</ul>
+
+
+
+<h3><span class="num">3D</span>
+非対称なレイアウト
+<span class="sub">２：１のシンプルなグリッドで作成</span>
+</h3>
+
+<ul class="list-fix">
+<li><a href="chap03D/sample/sample.html">完成ページ</a></li>
+<li><a href="chap03D/ie11/sample.html">IE11対応版</a></li>
+</ul>
+
+<ul class="list-step">
+<li><a href="chap03D/3D-02/sample.html">	3D-2	</a></li>
+<li><a href="chap03D/3D-03/sample.html">	3D-3	</a></li>
+<li><a href="chap03D/3D-04/sample.html">	3D-4	</a></li>
+<li><a href="chap03D/3D-05/sample.html">	3D-5	</a></li>
+</ul>
+
+</section>
+
+
+
+<section class="chap04">
+<h2><span class="chap">CHAPTER 4</span>
+ナビゲーション
+<span class="sub">グリッドでページの枠組みを作成</span></h2>
+
+<ul class="list-fix">
+<li><a href="chap04/sample/sample.html">完成ページ</a></li>
+<li><a href="chap04/ie11/sample.html">IE11対応版</a></li>
+<li><a href="chap04/sample-01/sample.html">完成ページ<br>Chapter 1のコンテンツを配置したもの</a></li>
+<li><a href="chap04/ie11-sample-01/sample.html">IE11対応版</a></li>
+<li><a href="chap04/sample-3B/sample.html">完成ページ<br>Chapter 3Bのコンテンツを配置したもの</a></li>
+<li><a href="chap04/ie11-sample-3B/sample.html">IE11対応版</a></li>
+</ul>
+
+<ul class="list-step">
+<li><a href="chap04/4-03/sample.html">	4-3	</a></li>
+<li><a href="chap04/4-04/sample.html">	4-4	</a></li>
+<li><a href="chap04/4-05/sample.html">	4-5	</a></li>
+<li><a href="chap04/4-06/sample.html">	4-6	</a></li>
+</ul>
+</section>
+
+
+<p class="copyright">© エビスコム / マイナビ出版</p>
+
+</div>
+
+</body>
+</html>
+

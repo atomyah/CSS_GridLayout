@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>サンプル</title>
+<meta name="viewport" content="width=device-width">
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<section class="cake">
+
+<div class="cake-main">
+	<h2>ふわもち<br>チョコカップケーキ</h2>
+	<p>ふわふわでモチモチな食感が幸せ気分を満たしてくれるチョコカップケーキ。冷やしても、温めてもおいしくいただけるのです。</p>
+</div>
+
+<figure class="cake-photo"><img src="img/cake.jpg" alt=""></figure>
+
+<div class="cake-sub">
+	<h3>
+		<span class="fas fa-gift"></span>
+		GIFT BOX
+	</h3>
+	<p>午後のおやつに、ティータイムに、珈琲のおともに、もちろんちょっと小腹がすいたときにこっそり食べるのもおすすめです。１つずつ個包装してリボンをかけたものや、お得なまとめ買いセットまで、よりどりなパッケージから選べます。</p>
+</div>
+
+</section>
+
+<script>
+var ua = window.navigator.userAgent.toLowerCase();
+
+if(ua.indexOf('safari') != -1 && ua.indexOf('version/10') != -1) {
+
+var imgs = document.querySelectorAll('.cake-photo img');
+
+var imgs = Array.prototype.slice.call(imgs,0);
+
+imgs.forEach(function(value, index, array) {
+	var imgurl = value.src;
+	var fig = value.parentNode;
+	fig.style.backgroundImage = 'url(' + imgurl + ')';
+	fig.style.backgroundSize = 'cover';
+	fig.style.backgroundPosition = 'center';
+	fig.style.minHeight = '250px';
+	value.style.display = 'none';
+});
+
+}
+</script>
+</body>
+</html>

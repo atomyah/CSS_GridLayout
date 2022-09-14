@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+body	{margin: 0;
+	font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif}
+
+
+/* 基本 */
+.page * {
+	margin: 0;
+}
+
+.page-head img {
+	width: 80px;
+	vertical-align: bottom;
+}
+
+
+
+
+

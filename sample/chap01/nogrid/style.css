@@ -1,0 +1,347 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+}
+
+
+/* 基本 */
+
+.post * {
+	margin: 0;
+}
+
+.post img {
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+
+.post {
+	padding: 0 30px;
+	font-family: 'Noto Sans Japanese', sans-serif;
+	font-size: 16px;
+}
+
+
+/* タイトル */
+.post-title {
+	z-index: 10;
+	font-size: 2.8125em;
+	font-weight: 900;
+	line-height: 1.2;
+}
+
+/* サブタイトル */
+.post-sub {
+	color: #ddd;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3.375em;
+	font-weight: 900;
+	letter-spacing: 0.14em;
+	line-height: 1;
+}
+
+/* 日付 */
+.post-date {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.875em;
+}
+
+/* リード文 */
+.post-lead {
+	font-size: 0.9375em;
+	font-weight: 700;
+	line-height: 1.8;
+}
+
+/* テキスト01 */
+.post-text01 {
+	font-size: 0.75em;
+	font-weight: 200;
+	line-height: 2;
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+/* 画像01 */
+.post-fig01 {
+	margin-right: -30px;
+}
+
+.post-fig01 img {
+	height: 100%;
+	object-fit: cover;
+}
+
+/* キャッチコピー */
+.post-catch {
+	margin-left: 30px;
+	font-size: 1.25em;
+	line-height: 1.5;
+	text-align: center;
+	quotes: '“' '”';
+}
+
+.post-catch::before {
+	content: open-quote;
+}
+
+.post-catch::after {
+	content: close-quote;
+}
+
+.post-catch::before,
+.post-catch::after {
+	color: #aaa;
+	font-size: 2em;
+	font-weight: 900;
+}
+
+
+/* 文章02 */
+.post-text02 {
+	font-size: 0.75em;
+	font-weight: 200;
+	line-height: 2;
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+/* 画像02 */
+.post-fig02 figcaption {
+	font-size: 0.625em;
+	font-weight: 500;
+}
+
+/* SNSメニュー */
+.post-sns ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.post-sns a {
+	font-size: 1.5em;
+	color: #aaa;
+	text-decoration: none;
+	text-align: center;
+	border: solid 1px #aaa;
+	border-radius: 50%;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
+}
+
+
+
+/* マーク画像 */
+.post::after {
+	width: 9.375em;
+	height: 9.375em;
+	content: url(img/anchor.svg);
+	opacity: 0.15;
+}
+
+
+/* ##### 画面の横幅1000ピクセル以上 ##### */
+@media (min-width: 1000px) {
+
+	.post {
+		width: 1000px;
+		box-sizing: border-box;
+		margin: auto;
+		font-size: 20px;
+	}
+
+}
+
+
+/* ##### 画面の横幅769～999ピクセル ##### */
+@media (min-width: 769px) and (max-width: 999px) {
+	.post {
+		font-size: calc(16px + 4 * (100vw - 768px) / 232);
+	}
+}
+
+
+
+/* ##### 画面の横幅767ピクセル以下 ##### */
+@media (max-width: 767px) {
+
+	.post {
+		padding: 20px;
+		font-size: 14.4px;
+	}
+
+	.post > *,
+	.post::after {
+	}
+
+
+	/* タイトル */
+	.post-title {
+		word-break: keep-all;
+	}
+
+	/* マーク画像 */
+	.post::after {
+		margin-bottom: -20px;
+	}
+
+	/* サブタイトル */
+	.post-sub {
+		font-size: 24px;
+	}
+
+	/* 日付 */
+	.post-date {
+	}
+
+	/* リード文 */
+	.post-lead {
+		font-size: 16px;
+	}
+
+	/* 画像01 */
+	.post-fig01 {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+
+	/* キャッチコピー */
+	.post-catch {
+		margin-left: 0;
+		margin-top: -35px;
+		justify-self: end;
+		background: rgba(255,255,255,0.6);
+		box-shadow: 0 0 10px 10px rgba(255,255,255,0.6);
+		border-radius: 10px;
+	}
+
+	/* テキスト01 & 文章02 */
+	.post-text01,
+	.post-text02 {
+		font-size: 15px;
+	}
+
+	/* SNSメニュー */
+	.post-sns {
+		justify-self: center;
+	}
+
+	.post-sns ul {
+	}
+
+}
+
+
+
+
+
+.post {
+	margin-top: 30px;
+	position: relative;
+}
+
+.post > * {
+	margin-bottom: 20px;
+}
+
+.post-sub {
+	position: relative;
+	z-index: -1;
+	margin-top: -50px;
+	margin-bottom: 30px;
+}
+
+.post-date {
+	position: absolute;
+	top: 40px;
+	right: 40px;
+}
+
+.post::after {
+	position: absolute;
+	top: 300px;
+	left: calc(40% - 75px);
+}
+
+.post-lead {
+	max-width: 500px;
+}
+
+.con01,
+.con02	{
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 30px;
+}
+
+.con01 {
+	flex-direction: row-reverse;
+}
+
+
+.post-text01,
+.post-fig02,
+.post-text02 {
+	flex: 0 0 40%;
+	margin-right: 40px;
+}
+
+.con01-inner {
+	display: flex;
+	flex-direction: column;
+}
+
+.post-catch {
+	display: flex;
+	align-self: flex-end;
+	margin: 10px 0 0 0;
+}
+
+.post-sns ul > * {
+	margin-bottom: 10px;
+}
+
+
+@media (max-width: 767px) {
+
+.post::after {
+	position: absolute;
+	top: -10px;
+	left: auto;
+	right: 20px;
+}
+.post-sub {
+	margin-top: -10px;
+}
+.post-date {
+	top: 130px;
+	right: 20px;
+}
+
+.con01,
+.con02	{
+	display: block;
+}
+
+.post-text01,
+.post-fig02,
+.post-text02 {
+	margin-right: 0;
+}
+
+.post-sns ul {
+	display: flex;
+	justify-content: center;
+}
+.post-sns ul > * {
+	margin: 20px 5px;
+}
+
+}

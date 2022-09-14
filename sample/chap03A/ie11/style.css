@@ -1,0 +1,266 @@
+@charset "UTF-8";
+
+/* CSSグリッドに対応したブラウザ用の設定 */
+@supports (display: grid) {
+
+body	{margin: 0;
+	font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif}
+
+
+/* 基本 */
+.orange * {
+	margin: 0;
+}
+
+.orange img	{
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+.orange-sub img {
+	max-width: 120px;
+}
+
+
+/* グリッド */
+.orange {
+	--side: 20px;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(2, auto);
+	grid-row-gap: 30px;
+	margin: 0 var(--side) 30px;
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+
+/* 大きい画像 */
+.orange-photo {
+	grid-column: 1 / -1;
+	grid-row: 1;
+	margin: 0 calc( var(--side) * -1 );
+}
+
+.orange-photo img {
+	height: 100%;
+	object-fit: cover;
+	max-height: 600px;
+}
+
+/* テキスト */
+.orange-text {
+	grid-column: span 5 / -1;
+	grid-row: 1;
+	justify-self: center;
+	align-self: center;
+	z-index: 10;
+	padding: 40px 0;
+	color: #fff;
+	writing-mode: vertical-rl;
+	text-shadow: 0px 0px 20px #000;
+
+	/* テキストのグリッド */
+	display: grid;
+	grid-row-gap: 15px;
+	justify-items: end;
+}
+
+.orange-text h2 {
+	padding-bottom: 20px;
+	font-size: 40px;
+	font-weight: 900;
+	line-height: 1.5;
+}
+
+.orange-text p {
+	height: 18em;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.8;
+}
+
+/* サブ情報 */
+.orange-sub {
+	grid-column: 1 / span 6;
+	grid-row: 2;
+
+	/* サブ情報のグリッド */
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 10px;
+}
+
+.orange-sub p {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+
+
+
+/* ##### 画面の横幅767ピクセル以下 ##### */
+@media (max-width: 767px) {
+
+	.orange-text {
+		justify-self: end;
+	}
+
+	.orange-sub {
+		grid-column: 1 / -1;
+	}
+
+	.orange::after {
+		grid-column: 1 / -1;
+		grid-row: 1;
+		margin: 0 calc( var(--side) * -1 );
+		content: '';
+		background-color: rgba(0,0,0,0.4);
+	}
+
+}
+
+
+} /* CSSグリッドに対応したブラウザ用の設定 ここまで */
+
+
+
+
+/* IE11用の設定 */
+@media all and (-ms-high-contrast: none), not all and (-ms-high-contrast: none) {
+
+/* Autoprefixerで変換した設定 */
+body	{margin: 0;
+	font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif}
+
+
+/* 基本 */
+.orange * {
+	margin: 0;
+}
+
+.orange img	{
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+.orange-sub img {
+	max-width: 120px;
+}
+
+
+/* グリッド */
+.orange {
+	--side: 20px;
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (1fr)[12];
+	    grid-template-columns: repeat(12, 1fr);
+	-ms-grid-rows: (auto)[2];
+	    grid-template-rows: repeat(2, auto);
+	grid-row-gap: 30px;
+	margin: 0 20px 30px;
+	font-family: 'Noto Sans Japanese', sans-serif;
+}
+
+/* 大きい画像 */
+.orange-photo {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 12;
+	grid-column: 1 / 13;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	margin: 0 calc( 20px * -1 );
+}
+
+.orange-photo img {
+	height: 100%;
+	-o-object-fit: cover;
+	   object-fit: cover;
+	max-height: 600px;
+}
+
+/* テキスト */
+.orange-text {
+	-ms-grid-column: 8;
+	-ms-grid-column-span: 5;
+	grid-column: span 5 / 13;
+	-ms-grid-row: 1;
+	grid-row: 1;
+	-ms-grid-column-align: center;
+	    justify-self: center;
+	-ms-grid-row-align: center;
+	    align-self: center;
+	z-index: 10;
+	padding: 40px 0;
+	color: #fff;
+	-webkit-writing-mode: vertical-rl;
+	    -ms-writing-mode: tb-rl;
+	        writing-mode: vertical-rl;
+	text-shadow: 0px 0px 20px #000;
+
+	/* テキストのグリッド */
+	display: -ms-grid;
+	display: grid;
+	grid-row-gap: 15px;
+	justify-items: end;
+}
+
+.orange-text h2 {
+	padding-bottom: 20px;
+	font-size: 40px;
+	font-weight: 900;
+	line-height: 1.5;
+}
+
+.orange-text p {
+	height: 18em;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.8;
+}
+
+/* サブ情報 */
+.orange-sub {
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 6;
+	grid-column: 1 / span 6;
+	-ms-grid-row: 2;
+	grid-row: 2;
+
+	/* サブ情報のグリッド */
+	display: -ms-grid;
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 10px;
+}
+
+.orange-sub p {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+
+/* IE11用追加設定 */
+.orange {
+	min-width: 768px;
+}
+.orange-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.orange-sub {
+	display: flex;
+	margin-top: 30px;
+}
+.orange-sub img {
+	width: auto;
+	margin-right: 10px;
+}
+.orange::after {
+	display: block;
+}
+
+} /* IE11用の設定 ここまで */
+
